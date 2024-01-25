@@ -38,3 +38,5 @@ build/
 .DS_Store
 /src/main/resources/chromedriver.exe
 /src/main/java/main.java
+/src/main/resources/phantomjs.exe
+/src/main/resources/geckodriver.exe

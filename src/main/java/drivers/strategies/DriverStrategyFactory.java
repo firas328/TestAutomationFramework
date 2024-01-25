@@ -1,11 +1,14 @@
+package drivers.strategies;
+import utils.Constant;
+
 public class DriverStrategyFactory {
     public static DriverStrategy createDiver(String startegy){
         switch (startegy){
-            case "chrome":
+            case Constant.CHROME:
                 return new Chrome();
-            case "FireFox":
+            case Constant.FIRFOX:
                 return new FireFox();
-            case "Phantomjs":
+            case Constant.PANTOMJS:
                 return new PhantomJS();
             default:
                 return null;
