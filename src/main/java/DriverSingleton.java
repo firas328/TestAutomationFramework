@@ -5,13 +5,13 @@ import java.util.concurrent.TimeUnit;
 public class DriverSingleton {
     private static DriverSingleton instance ;
     private static WebDriver driver;
-    private DriverSingleton() {
-        instanciate("chrome");
+    private DriverSingleton(String driver) {
+        instanciate(driver);
     }
 
-    public static DriverSingleton getInstance() {
+    public static DriverSingleton getInstance(String driver) {
         if (instance == null) {
-            return new DriverSingleton();
+            return new DriverSingleton(driver);
         }
         return instance;
     }
@@ -19,7 +19,7 @@ public class DriverSingleton {
     public WebDriver instanciate(String strategy) {
         DriverStrategy driverStrategy = DriverStrategyFactory.createDiver(strategy)  ;
         driver=driverStrategy.setStrategy();
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.manage().window().maximize();
         return driver;
     }
